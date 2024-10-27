@@ -1,21 +1,37 @@
-.gradle
+# General build directories
+.gradle/
 **/build/
-!src/**/build/
+**/bin/
 
-# Ignore Gradle GUI config
-gradle-app.setting
+# Java-specific
+*.class
+*.jar
+*.war
+*.ear
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# Avoid ignore Gradle wrappper properties
-!gradle-wrapper.properties
-
-# Cache of project
-.gradletasknamecache
-
-# Eclipse Gradle plugin generated files
-# Eclipse Core
+# IntelliJ IDEA / Eclipse IDE files
+*.iml
+.idea/
+*.classpath
 .project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
+*.factorypath
+.settings/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Gradle wrapper files (only exclude other .jar files)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Application properties
+application*.properties
+*.properties
+
+# SSL certificates
+ssl-certs/
+
+# harpoon
+.harpoon*
+
