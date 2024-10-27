@@ -40,6 +40,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '3.3.3'
   implementation group: 'com.mchange', name: 'c3p0', version: '0.10.1'
 	runtimeOnly group: 'net.sf.ucanaccess', name: 'ucanaccess', version: '5.0.1'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.3.3'
 }
 
 tasks.named('test') {
