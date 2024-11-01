@@ -2,22 +2,37 @@ package com.courtmanager.webapp.lightsaccount;
 
 import com.courtmanager.webapp.databases.MsAccessDb;
 import org.springframework.stereotype.Repository;
-import javax.swing.tree.RowMapper;
+import java.sql.Connection;
+import java.sql.Statement;
 
-import org.apache.commons.lang3.NotImplementedException;
-import org.springframework.jdbc.core.JdbcTemplate;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @Repository
 public class LightsAccountRepository {
 
-  private final JdbcTemplate jdbcTemplate;
+  private final Connection connection;
 
-  public LightsAccountRepository() {
-    this.jdbcTemplate = MsAccessDb.getInstance().getJdbcTemplate();
+  public LightsAccountRepository() throws SQLException {
+    MsAccessDb msAccessDb = new MsAccessDb();
+    this.connection = msAccessDb.test();
   }
 
-  public void selectAll() {
-    // TODO implement
-    throw new NotImplementedException("Todo");
+  public void selectAll() throws SQLException {
+    try {
+      String sql = "SELECT * FROM LightsAccount";
+
+      Statement statement = connection.createStatement();
+      ResultSet result = statement.executeQuery(sql);
+
+      while (result.next()) {
+        int id = result.getInt("Id");
+        String fullname = result.getString("Name");
+
+        System.out.println(id + ", " + fullname);
+      }
+    } catch (SQLException ex) {
+      throw new SQLException(ex.getMessage().toString());
+    }
   }
 }
