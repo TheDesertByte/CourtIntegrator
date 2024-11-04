@@ -1,13 +1,11 @@
 package com.courtmanager.webapp.lightsaccount;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.courtmanager.webapp.lightsaccount.LightsAccount;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class LightsAccountController {
@@ -27,6 +25,12 @@ public class LightsAccountController {
   @GetMapping("/accounts")
   public String getAllLightsAccounts(Model model) throws SQLException {
     repository.selectAll();
+    return "layout";
+  }
+
+  @GetMapping("/accounts/{id}")
+  public String getById(@PathVariable("id") int id, Model model) throws Exception {
+    LightsAccount account = repository.getById(id);
     return "layout";
   }
 };
