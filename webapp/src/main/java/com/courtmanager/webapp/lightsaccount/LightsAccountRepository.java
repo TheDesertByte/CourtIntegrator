@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -24,7 +23,7 @@ public class LightsAccountRepository {
       String sql = "SELECT * FROM LightsAccount WHERE [Type] = 7 ORDER BY [Date] desc";
       System.out.println("-------------------------------");
       System.out.println(sql);
-      System.out.println("-------------------------------");
+      System.out.println("---------------------------------");
 
       Statement statement = connection.createStatement();
       ResultSet result = statement.executeQuery(sql);
