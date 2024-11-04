@@ -45,3 +45,27 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+/* Custom table container for a consistent look */
+#all-accounts-div .table-responsive {
+  max-height: 300px;
+  /* Fixed height for the scrollable table */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+
+/* Style for table cells */
+.table td,
+.table th {
+  text-align: center;
+  /* Center-align text */
+  vertical-align: middle;
+  /* Middle-align for better readability */
+}
+
+/* Optional: Adjust column width if necessary */
+.table th,
+.table td {
+  min-width: 100px;
+  /* Ensures columns are wide enough */
+}
