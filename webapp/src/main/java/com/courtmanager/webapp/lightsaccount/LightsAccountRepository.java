@@ -19,19 +19,28 @@ public class LightsAccountRepository {
     this.connection = msAccessDb.test();
   }
 
-  public void selectAll() throws SQLException {
+  public ArrayList<LightsAccount> selectAll() throws SQLException {
     try {
-      String sql = "SELECT * FROM LightsAccount";
+      String sql = "SELECT * FROM LightsAccount WHERE [Type] = 7 ORDER BY [Date] desc";
+      System.out.println("-------------------------------");
+      System.out.println(sql);
+      System.out.println("-------------------------------");
 
       Statement statement = connection.createStatement();
       ResultSet result = statement.executeQuery(sql);
 
+      ArrayList<LightsAccount> accounts = new ArrayList<>();
       while (result.next()) {
-        int id = result.getInt("Id");
-        String fullname = result.getString("Name");
-
-        System.out.println(id + ", " + fullname);
+        LightsAccount lightsAccount = new LightsAccount();
+        lightsAccount.setName(result.getString("Name"));
+        lightsAccount.setDate(result.getDate("Date"));
+        lightsAccount.setAmount(result.getFloat("Amount"));
+        lightsAccount.setBalance(result.getFloat("Balance"));
+        lightsAccount.setUser(result.getString("User"));
+        lightsAccount.setType(result.getInt("Type"));
+        accounts.add(lightsAccount);
       }
+      return accounts;
     } catch (SQLException ex) {
       throw new SQLException(ex.getMessage().toString());
     }
@@ -47,11 +56,12 @@ public class LightsAccountRepository {
       while (result.next()) {
         account.setId(result.getInt("Id"));
         account.setName(result.getString("Name"));
-        account.setDate(result.getString("Date"));
+        account.setDate(result.getDate("Date"));
         account.setMemNo(result.getInt("Mem_No"));
         account.setAmount(result.getFloat("Amount"));
         account.setBalance(result.getFloat("Balance"));
         account.setUser(result.getString("User"));
+        account.setType(result.getInt("Type"));
       }
       return account;
     } catch (Exception e) {

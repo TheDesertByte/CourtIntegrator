@@ -16,21 +16,22 @@ public class LightsAccountController {
     this.repository = new LightsAccountRepository();
   }
 
-  @GetMapping("/home")
+  @GetMapping("/")
   public String sayHello(Model model) {
     model.addAttribute("title", "Data Application");
     return "layout";
   }
 
-  @GetMapping("/accounts")
+  @GetMapping("/lightsaccounts")
   public String getAllLightsAccounts(Model model) throws SQLException {
-    repository.selectAll();
-    return "layout";
+    model.addAttribute("accounts", repository.selectAll());
+    return "lightsAccounts :: results";
   }
 
-  @GetMapping("/accounts/{id}")
+  @GetMapping("/lightsaccounts/{id}")
   public String getById(@PathVariable("id") int id, Model model) throws Exception {
     LightsAccount account = repository.getById(id);
-    return "layout";
+    model.addAttribute("name", account.getName());
+    return "lightsAccounts :: accounts";
   }
 };

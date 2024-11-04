@@ -1,11 +1,12 @@
 package com.courtmanager.webapp.lightsaccount;
 
+import java.util.Date;
 import jakarta.enterprise.inject.Model;
 
 @Model
 public class LightsAccount {
   private int id;
-  private String date;
+  private Date date;
   private int memNo;
   private String name;
   private float amount;
@@ -37,11 +38,11 @@ public class LightsAccount {
     this.name = name;
   }
 
-  public String getDate() {
+  public Date getDate() {
     return date;
   }
 
-  public void setDate(String date) {
+  public void setDate(Date date) {
     this.date = date;
   }
 
