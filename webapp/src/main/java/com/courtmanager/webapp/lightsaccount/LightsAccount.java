@@ -1,12 +1,12 @@
 package com.courtmanager.webapp.lightsaccount;
 
-import java.util.Date;
+import java.time.LocalDate;
 import jakarta.enterprise.inject.Model;
 
 @Model
 public class LightsAccount {
   private int id;
-  private Date date;
+  private LocalDate date;
   private int memNo;
   private String name;
   private float amount;
@@ -38,11 +38,11 @@ public class LightsAccount {
     this.name = name;
   }
 
-  public Date getDate() {
+  public LocalDate getDate() {
     return date;
   }
 
-  public void setDate(Date date) {
+  public void setDate(LocalDate date) {
     this.date = date;
   }
 

@@ -42,6 +42,9 @@ dependencies {
 	runtimeOnly group: 'net.sf.ucanaccess', name: 'ucanaccess', version: '5.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.3.3'
   implementation 'org.apache.commons:commons-lang3:3.12.0'
+  implementation 'org.springframework.boot:spring-boot-starter-websocket'
+  implementation 'commons-io:commons-io:2.11.0'
+
 }
 
 

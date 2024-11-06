@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-  <title>fragments</title>
+  <title>Table</title>
 </head>
 
 <body>
@@ -17,6 +17,8 @@
             <th>Balance</th>
             <th>User</th>
             <th>Type</th>
+            <th>MemNo</th>
+            <th>Reversed</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +29,8 @@
             <td th:text="${account.balance}"></td>
             <td th:text="${account.user}"></td>
             <td th:text="${account.type}"></td>
+            <td th:text="${account.memNo}"></td>
+            <td th:text="${account.reversed}"></td>
           </tr>
         </tbody>
       </table>
