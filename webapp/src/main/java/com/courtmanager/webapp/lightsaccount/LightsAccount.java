@@ -1,32 +1,33 @@
 package com.courtmanager.webapp.lightsaccount;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import jakarta.enterprise.inject.Model;
 
 @Model
 public class LightsAccount {
-  private int id;
-  private LocalDate date;
-  private int memNo;
+  private Integer id;
+  private LocalDateTime date;
+  private Integer memNo;
   private String name;
-  private float amount;
-  private int type;
-  private float balance;
+  private Float amount;
+  private Integer type;
+  private Float balance;
   private String user;
-  private int court;
-  private int period;
+  private Integer court;
+  private Integer period;
   private boolean reversed;
-  private int units;
-  private int unitBalance;
+  private Integer units;
+  private Integer unitBalance;
 
   public LightsAccount() {
   }
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -38,43 +39,43 @@ public class LightsAccount {
     this.name = name;
   }
 
-  public LocalDate getDate() {
+  public LocalDateTime getDate() {
     return date;
   }
 
-  public void setDate(LocalDate date) {
+  public void setDate(LocalDateTime date) {
     this.date = date;
   }
 
-  public int getMemNo() {
+  public Integer getMemNo() {
     return memNo;
   }
 
-  public void setMemNo(int memNo) {
+  public void setMemNo(Integer memNo) {
     this.memNo = memNo;
   }
 
-  public float getAmount() {
+  public Float getAmount() {
     return amount;
   }
 
-  public void setAmount(float amount) {
+  public void setAmount(Float amount) {
     this.amount = amount;
   }
 
-  public int getType() {
+  public Integer getType() {
     return type;
   }
 
-  public void setType(int type) {
+  public void setType(Integer type) {
     this.type = type;
   }
 
-  public float getBalance() {
+  public Float getBalance() {
     return balance;
   }
 
-  public void setBalance(float balance) {
+  public void setBalance(Float balance) {
     this.balance = balance;
   }
 
@@ -86,19 +87,19 @@ public class LightsAccount {
     this.user = user;
   }
 
-  public int getCourt() {
+  public Integer getCourt() {
     return court;
   }
 
-  public void setCourt(int court) {
+  public void setCourt(Integer court) {
     this.court = court;
   }
 
-  public int getPeriod() {
+  public Integer getPeriod() {
     return period;
   }
 
-  public void setPeriod(int period) {
+  public void setPeriod(Integer period) {
     this.period = period;
   }
 
@@ -110,19 +111,19 @@ public class LightsAccount {
     this.reversed = reversed;
   }
 
-  public int getUnits() {
+  public Integer getUnits() {
     return units;
   }
 
-  public void setUnits(int units) {
+  public void setUnits(Integer units) {
     this.units = units;
   }
 
-  public int getUnitBalance() {
+  public Integer getUnitBalance() {
     return unitBalance;
   }
 
-  public void setUnitBalance(int unitBalance) {
+  public void setUnitBalance(Integer unitBalance) {
     this.unitBalance = unitBalance;
   }
 
