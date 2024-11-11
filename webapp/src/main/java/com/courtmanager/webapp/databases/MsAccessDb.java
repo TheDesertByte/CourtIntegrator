@@ -24,7 +24,7 @@ public class MsAccessDb {
     @PostConstruct
     public Connection test() throws SQLException {
         try {
-            String url = "jdbc:ucanaccess://C:/Users/CG411MW/projects/Courts.mdb;openExclusive=false;ignoreCase=true;showSchema=true";
+            String url = "jdbc:ucanaccess://../Courts.mdb;openExclusive=false;ignoreCase=true;showSchema=true";
             // String url2 = env.getProperty("spring.datasource.url");
             // String driver2 = env.getProperty("spring.datasource.driver-class-name");
             // DriverManagerDataSource dataSource = new DriverManagerDataSource();
