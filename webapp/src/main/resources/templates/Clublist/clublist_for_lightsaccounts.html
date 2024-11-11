@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+  <ul>
+    <!-- Loop through each result and create a clickable item for each member -->
+    <th:block th:each="member : ${results}">
+      <li>
+        <a href="#"
+          th:attr="hx-get='/lightsaccounts/memberpayment?memberId=' + ${member.id}, hx-target='#form-' + ${member.id}"
+          hx-swap="innerHTML">
+          <span
+            th:text="${member.memNo} + ' ' + ${member.first} + ' ' + ${member.surname} + ' ' + ${member.balance}">Member
+            Name</span>
+        </a>
+
+        <!-- This div will be dynamically populated with the form when clicked -->
+        <div th:id="'form-' + ${member.id}"></div>
+      </li>
+    </th:block>
+  </ul>
+</body>
+
+</html>

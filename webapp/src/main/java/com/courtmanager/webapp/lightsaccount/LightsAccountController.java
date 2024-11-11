@@ -1,5 +1,6 @@
 package com.courtmanager.webapp.lightsaccount;
 
+import java.io.InvalidObjectException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,18 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.courtmanager.webapp.clublist.Clublist;
+import com.courtmanager.webapp.clublist.IClublistService;
 import com.courtmanager.webapp.interfaces.IService;
 
 @Controller
 public class LightsAccountController {
 
   private IService<LightsAccount> service;
+  private IClublistService clublistService;
 
   @Autowired
-  public LightsAccountController(IService<LightsAccount> service) throws SQLException {
+  public LightsAccountController(IService<LightsAccount> service, IClublistService clublistService)
+      throws SQLException {
     this.service = service;
+    this.clublistService = clublistService;
   }
 
   @GetMapping("/lightsaccounts")
@@ -35,7 +42,7 @@ public class LightsAccountController {
   }
 
   @GetMapping("/lightsaccounts/table")
-  public String getAllLightsAccounts(Model model) throws SQLException {
+  public String getAllLightsAccounts(Model model) throws SQLException, InvalidObjectException {
     model.addAttribute("accounts", service.getAll());
     return "LightsAccounts/LightsAccountsTable :: results";
   }
@@ -69,5 +76,17 @@ public class LightsAccountController {
 
     model.addAttribute("accounts", filtered);
     return "LightsAccounts/LightsAccountsTable :: results";
+  }
+
+  @GetMapping("/lightsaccounts/payment")
+  public String paymentForm(@RequestParam(value = "q", required = false) String q, Model model) {
+    return "LightsAccounts/payments";
+  }
+
+  @GetMapping("/lightsaccounts/memberpayment")
+  public String getMemberPaymentForm(@RequestParam("memberId") int memberId, Model model) throws SQLException {
+    Clublist member = clublistService.getById(memberId);
+    model.addAttribute("member", member);
+    return "LightsAccounts/payment_form"; // View that contains the payment form
   }
 };

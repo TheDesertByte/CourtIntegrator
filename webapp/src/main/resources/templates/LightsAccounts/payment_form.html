@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+  <form th:action="@{/lightsaccounts/submitPayment}" method="post" hx-post="@{/lightsaccounts/submitPayment}"
+    hx-target="#form-${member.id}" hx-swap="outerHTML">
+    <input type="hidden" name="memberId" th:value="${member.id}" />
+    <input type="hidden" name="memNo" th:value="${member.memNo}" />
+    <input type="hidden" name="balance" th:value="${member.memNo}" />
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" min="0" step="0.01" required />
+    <button type="submit">Submit Payment</button>
+  </form>
+</body>
+
+</html>

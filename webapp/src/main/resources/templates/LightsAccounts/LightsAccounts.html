@@ -25,7 +25,9 @@
           hx-include="#from-date, #to-date, #search-input">
           Filter by Date
         </button>
-
+        <button id="payments-btn" hx-get="lightsaccounts/payment" hx-target="#all-accounts-div" hx-trigger="click">
+          Payment
+        </button>
         <!-- Accounts Results Section -->
         <section id="all-accounts-div" hx-get="/lightsaccounts/table" hx-trigger="load">
           Loading Lights Accounts...

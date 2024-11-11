@@ -69,3 +69,14 @@ button.accept-policy {
   min-width: 100px;
   /* Ensures columns are wide enough */
 }
+
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Optional: Add some spacing between list items */
+.no-bullets li {
+  margin-bottom: 10px;
+}

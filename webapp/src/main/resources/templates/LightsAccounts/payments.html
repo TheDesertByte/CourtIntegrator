@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <title>Payments</title>
+  <link rel="stylesheet" href="/css/forms.css">
+</head>
+
+<body>
+  <div id="all-accounts-div">
+    <h1 class="text-left mt-4">LightsAccount Entry</h1>
+    <div class="container">
+      <form style="text-align: left;">
+        <div class="mb-3">
+          <label for="name" class="form-label">Member</label>
+          <input type="text" id="name" name="q" class="form-control" maxlength="30"
+            placeholder="Search member (name or surname or member number)" hx-get="/clublist/search"
+            hx-trigger="keyup changed delay:500ms" hx-target="#member-results" hx-swap="innerHTML" required>
+      </form>
+    </div>
+    <div id="member-results">
+    </div>
+  </div>
+</body>
+
+</html>
