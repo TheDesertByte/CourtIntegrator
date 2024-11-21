@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.courtmanager.webapp.clublist.Clublist;
@@ -54,7 +53,6 @@ public class LightsAccountController {
       Model model) throws SQLException {
 
     var filtered = service.getAll().stream();
-    //
     // Handle date filtering
     if (from != null && !from.isEmpty() && to != null && !to.isEmpty()) {
       LocalDate localDateFrom = LocalDate.parse(from);
